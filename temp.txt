@@ -1,0 +1,93 @@
+let status = [
+    {
+        name: 'BROOOOOOOOOOOOOOOOOOO',
+        type: ActivityType.Streaming,
+        url: 'pizdec',
+    },
+    {
+        name: '!!!!!!!!!!!',
+    },
+    {
+        name: '???????????',
+        type: ActivityType.Watching,
+        url: 'pizdec',
+    }
+];
+
+client.on('messageCreate', async (message) =>{ 
+    if(message.guild) return;
+    console.log(`DM: ${message.content}`);
+});
+
+client.on('ready', (c) => {
+    console.log(`${c.user.tag} is online.`);
+    //client.users.send('...', 'https://tenor.com/view/zxc-gif-27711970');
+    client.user.setPresence({ 
+        activities: [
+        {   
+            name: '????????????', 
+            type: ActivityType.Streaming, 
+            url: "https://twitch.tv/a"
+        }], 
+        status: 'idle' 
+    });
+
+    // setInterval(() => {
+    //     let random = Math.floor(Math.random() * status.length);
+    //     console.log(random);
+    //     c.user.setActivity(status[random]);
+    // }, 10000)
+});
+
+client.on('interactionCreate', async (interaction) => {
+    //if(!interaction.isChatInputCommand()) return;
+
+    if(interaction.isButton()){
+        try {
+            await interaction.deferReply({ephemeral: true});
+    
+            const role = interaction.guild.roles.cache.get(interaction.customId);
+            if(!role){
+                interaction.editReply({
+                    content: "I couldn't find that role"
+                })
+                return;
+            }
+    
+            const hasRole = interaction.member.roles.cache.has(role.id);
+            if(hasRole){
+                 await interaction.member.roles.remove(role);
+                 await interaction.editReply("Role removed");
+                 return;
+             }
+        
+            await interaction.member.roles.add(role);
+            await interaction.editReply("Role added");
+
+    } catch (error) {
+        console.log("poh");
+    }
+    }
+
+    if(interaction.commandName == 'hey'){
+        interaction.reply('hey!');
+    }
+
+    if(interaction.commandName == 'ping') {
+        interaction.reply('pop');
+    }
+    
+    if(interaction.commandName == 'embed'){
+        const embed = new EmbedBuilder()
+        .setTitle('Embed title')
+        .setDescription('Text')
+        .addFields({name: 'Field title', value: 'Test', inline: true})
+        .setColor('Random');
+
+        interaction.reply({embeds: [embed]});
+    }
+
+    if(interaction.commandName = 'add'){
+        interaction.reply(`Sum is ${interaction.options.get('first-number').value + interaction.options.get('second-number').value}`)
+    }
+});

@@ -10,6 +10,10 @@ const calculateLevelXp = require('../../utils/calculateXp');
 const Level = require('../../models/Level');  
 const { RankCardBuilder, Font } = require('canvacord');
 
+function getAmountXp(){
+  
+}
+
 module.exports = {
     /**
      * 
