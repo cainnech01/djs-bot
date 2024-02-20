@@ -27,16 +27,16 @@ module.exports = {
             if(user){
                 let lastDaily = user.lastDaily.toDateString();
                 let currentDate = new Date().toDateString();
-
+                console.log(`${lastDaily} | ${currentDate}`);
                 if(lastDaily == currentDate){
-                    interaction.editReply("No time yet");
+                    interaction.editReply(`a`);
                     return;
                 }
 
                 user.lastDaily = new Date();
             }
             else{
-                let user = new User({
+                user = new User({
                     ...query,
                     lastDaily: new Date(),
                 });

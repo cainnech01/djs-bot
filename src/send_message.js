@@ -28,20 +28,24 @@ const roles = [
 
 client.on('ready', async (c) => {
     try {
-        const channel = await client.channels.cache.get('1192524619312275637');
+        const channel = await client.channels.cache.get('1044987436536696867');
         if(!channel) return;
 
-        const row = new ActionRowBuilder();
+        // const row = new ActionRowBuilder();
 
-        roles.forEach((role) =>{
-            row.components.push(
-                new ButtonBuilder().setCustomId(role.id).setLabel(role.label).setStyle(ButtonStyle.Primary)
-            )
-        });
+        // roles.forEach((role) =>{
+        //     row.components.push(
+        //         new ButtonBuilder().setCustomId(role.id).setLabel(role.label).setStyle(ButtonStyle.Primary)
+        //     )
+        // });
+
+        // await channel.send({
+        //     content: 'Claim the role',
+        //     components: [row],
+        // });
 
         await channel.send({
-            content: 'Claim the role',
-            components: [row],
+            content: '<@352773734098141204> <ГосУслуги> Ваша заявку на получение альтушки, была одобрена'
         });
         process.exit();
 

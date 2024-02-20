@@ -34,21 +34,21 @@ module.exports = async (client) => {
 
                     console.log(`Edited command @${name}.`)
                 } 
-        }
-        else{
-            if(localCommand.deleted){
-                console.log(`Skipping registering command @${name} as it's set to delete.`);
-                continue;
             }
+            else{
+                if(localCommand.deleted){
+                    console.log(`Skipping registering command @${name} as it's set to delete.`);
+                    continue;
+                }
 
-            await applicationCommands.create({
-                name,
-                description,
-                options,
-            });
+                await applicationCommands.create({
+                    name,
+                    description,
+                    options,
+                });
 
-            console.log(`Registered command @${name}`);
-        }
+                console.log(`Registered command @${name}`);
+            }
         }
     } catch (error) {
         console.log(`ERROR ${error}`)

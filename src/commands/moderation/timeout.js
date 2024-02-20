@@ -69,7 +69,7 @@ module.exports = {
             await interaction.editReply(`${targetUser} was time out for ${prettyMs(msDuration, { verbose: true})}.\nReason: ${reason}`);
             
         } catch (error) {
-            console.log(`ERROR ${error}`);
+            console.log(`error with timeout: ${error}`);
         }
     },
 

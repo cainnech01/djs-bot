@@ -16,6 +16,8 @@ module.exports = {
 
         const targetUser = await interaction.guild.members.fetch(targetUserId);
 
+        console.log(targetUser);
+
         if(!targetUser){
             await interaction.editReply("User doesn't exist in this server");
             return;

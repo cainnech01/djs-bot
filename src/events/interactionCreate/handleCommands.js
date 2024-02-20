@@ -80,6 +80,6 @@ module.exports = async (client,interaction) => {
 
 
     } catch (error) {
-        console.log(`ERROR sss ${error}`)
+        console.log(`error handling command: ${error}`)
     }
 }

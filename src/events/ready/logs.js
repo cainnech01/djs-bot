@@ -6,5 +6,5 @@ const {Client} = require('discord.js');
 
 module.exports = (client) => {
     console.log(`${client.user.tag} is online`);
-    //client.users.send('927285381207040070 ', 'https://tenor.com/view/zxc-gif-27711970');
+    //client.users.send('352773734098141204', 'https://tenor.com/view/zxc-gif-27711970'); //1 
 }
