@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose');
 
-const autoRoleSchema = new Schmea({
+const autoRoleSchema = new Schema({
     guildId: {
         type: String,
         required: true,

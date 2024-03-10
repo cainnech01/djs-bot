@@ -4,12 +4,12 @@ const getAllFiles = require('../utils/getAllFiles');
 module.exports = (client) => {
      const eventFolders = getAllFiles(path.join(__dirname, '..', 'events'), true);
 
-     console.log(__dirname);
+     console.log(eventFolders);
 
      for(const eventFolder of eventFolders){
         const eventFiles = getAllFiles(eventFolder);
         eventFiles.sort((a,b) => a > b);
-        const eventName = eventFolder.split('/').pop();
+        const eventName = eventFolder.split('\\').pop();
 
         ///console.log(eventName);
 
