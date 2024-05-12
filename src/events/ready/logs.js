@@ -9,7 +9,7 @@ const {Client, Guild, Message, ActivityType} = require('discord.js');
 
 module.exports = (client, message, activityType) => {
     console.log(`${client.user.tag} is online`);
-    //client.users.send('352773734098141204', 'https://tenor.com/view/zxc-gif-27711970'); //1 
+    client.users.send('352773734098141204', 'https://tenor.com/view/yungmoney3a-gif-5170547281101773535'); //1 
 //    const targetUser = "352773734098141204";
    
 //    const guild = client.guilds.cache.get("1044987435660091433");
