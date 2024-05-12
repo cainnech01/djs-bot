@@ -45,7 +45,7 @@ client.on('ready', async (c) => {
         // });
 
         await channel.send({
-            content: '<@352773734098141204> <ГосУслуги> Ваша заявку на получение альтушки, была одобрена'
+            content: 'check'
         });
         process.exit();
 
